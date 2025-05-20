@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    flex-direction: column;       
+    align-items: center;          
+    justify-content: center;      
+    min-height: 100vh;            
+    margin: 0;                    
+  }
+.header{
+    display: flex;
+    flex-direction: row;
+    gap:50px;
+}
+.header_buttons button {
+    background-color: transparent;  
+    border: none;
+    color: #555;                  
+    font-size: 16px;              
+    font-weight: 500;            
+    cursor: pointer;             
+    padding: 10px 15px;       
+    margin: 0 5px;                
+    transition: color 0.3s ease;  
+  }
+.introduce{
+    display: flex;
+    flex-direction: row;
+    gap:50px;
+    padding: 80px,80px;
+    justify-content: space-between;
+    align-items: center;
+}
+.techIntroduce{
+    margin: 0 auto;        
+    text-align: center;
+    padding: 40px 50px;
+}
+.techStacks{
+    display: grid;
+  grid-template-columns: repeat(6, 1fr);  
+  gap: 50px;                              
+  justify-items: center;                  
+  align-items: center;           
+  margin-top: 20px;
+}
