@@ -17,6 +17,7 @@ let res = [];
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
     },
   });
+  // 글자 깨짐 문제 해결
   const buffer = await response2.arrayBuffer();
   const decoded = iconv.decode(Buffer.from(buffer), "euc-kr");
 
