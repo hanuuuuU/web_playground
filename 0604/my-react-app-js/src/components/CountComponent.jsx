@@ -21,6 +21,8 @@ export default function CountComponent() {
   // 컴포넌트가 처음 생기거나 dependencyArray에 있는 값이 변경될때마다 callbackFn을 실행.
   useEffect(() => {
     console.log("데이터 받아오기! (이 함수는 한 번만 실행됩니다.");
+    // return 되는 함수는 state가 변화되었을 때,
+    // useEffect가 다시 실행되기 직전 실행
     return () => {
       console.log(
         "메모리를 잡아먹으면 리소스 해제 하는 함수를 return 해 주어야 합니다."
