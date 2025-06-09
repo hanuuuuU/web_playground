@@ -13,6 +13,12 @@ export default function Pt7() {
   function resetTimer() {
     setSec(0);
   }
+  // setState함수 두가지 사용법.
+  // setState(값) ==> state를 해당 값으로 하겠다. <1번>
+  // setState((prevState)=>{ return newState }) <2번>
+  //   ==> 이전 state를 인자로 받아서 새로운 state를 return
+  //
+  //1번
   useEffect(() => {
     const dd = setInterval(() => {
       if (control) {
@@ -23,6 +29,18 @@ export default function Pt7() {
       clearInterval(dd);
     };
   }, [sec, control]);
+  // 2번
+  // useEffect(() => {
+  //   if (control) {
+  //     const intervalId = setInterval(() => {
+  //       setSec((prev) => prev + 1);
+  //     }, 1000);
+  //     return () => {
+  //       clearInterval(intervalId);
+  //     };
+  //   }
+  // }, [control]);
+
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <p>{sec}</p>
