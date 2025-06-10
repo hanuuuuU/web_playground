@@ -1,14 +1,23 @@
 export default function TodoItem({ text, color }) {
   return (
-    <li
+    <div
       style={{
+        display: "flex",
+        height: 30,
         backgroundColor: color,
-        width: 250,
-        listStyleType: "none",
+        alignItems: "center",
         marginBottom: 10,
       }}
     >
-      {text}
-    </li>
+      <li
+        style={{
+          width: 250,
+          listStyleType: "none",
+        }}
+      >
+        {text}
+      </li>
+      <button style={{ height: 30, padding: 6, fontSize: 12 }}>삭제</button>
+    </div>
   );
 }
