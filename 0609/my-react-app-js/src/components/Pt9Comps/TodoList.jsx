@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { TodoProvider, useTodo } from "./TodoProvider";
 
-export default function TodoList({ filterItems, setItems, originItems }) {
+export default function TodoList({ filterItems }) {
   const [modify, setModify] = useState(false);
   const [nowEdit, setNowEdit] = useState("");
   const [text, setText] = useState("");
+  const { inputArr, removeTodo, editTodo } = useTodo();
 
   return (
     <ul style={{ paddingLeft: 0 }}>
@@ -48,15 +50,9 @@ export default function TodoList({ filterItems, setItems, originItems }) {
             <button
               style={{ height: 30, padding: 6, fontSize: 12 }}
               onClick={() => {
-                console.log(data.id);
-                let findIdx = originItems.findIndex(
-                  (item) => item.id === nowEdit
-                );
-                let copiedItems = [...originItems];
-                copiedItems[findIdx].text = text;
-                setItems(copiedItems);
+                console.log(text);
+                editTodo(nowEdit, text);
                 setModify(!modify);
-                localStorage.setItem("json", JSON.stringify(copiedItems));
               }}
             >
               확인
@@ -83,9 +79,7 @@ export default function TodoList({ filterItems, setItems, originItems }) {
             // inputArr최신화 시키기, 로컬 스토리지도 업데이트 해주기
             // 그에 맞춰서 SearchList도 최신화 시키기(근데 이건 useEffect에 이미 구현)
             onClick={() => {
-              const newList = originItems.filter((item) => item.id != data.id);
-              setItems(newList);
-              localStorage.setItem("json", JSON.stringify(newList));
+              removeTodo(data);
             }}
             style={{ height: 30, padding: 6, fontSize: 12 }}
           >

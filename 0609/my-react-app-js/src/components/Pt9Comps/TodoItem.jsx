@@ -1,4 +1,4 @@
-export default function TodoItem({ text, color }) {
+export default function TodoItem({ key, text, color }) {
   return (
     <div
       style={{
@@ -17,7 +17,12 @@ export default function TodoItem({ text, color }) {
       >
         {text}
       </li>
-      <button style={{ height: 30, padding: 6, fontSize: 12 }}>삭제</button>
+      <button
+        onClick={() => {}}
+        style={{ height: 30, padding: 6, fontSize: 12 }}
+      >
+        삭제
+      </button>
     </div>
   );
 }
